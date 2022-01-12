@@ -138,7 +138,7 @@ var SonarQubeUnitReporter = function(baseReporterDecorator, config, logger, help
     if (filenameFormatter !== null) {
       nextPath = filenameFormatter(nextPath, result)
       if (!nextPath) {
-        log.warn('No filename found for description: ' + nextPath)
+        log.debug('No filename found for description: ' + nextPath)
       } else if (preMapped !== nextPath) {
         log.debug('Transformed File name "' + preMapped + '" -> "' + nextPath + '"')
       } else {
