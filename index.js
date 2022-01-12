@@ -151,7 +151,8 @@ var SonarQubeUnitReporter = function(baseReporterDecorator, config, logger, help
 
     var numberOfFileNodes = fileNodes.children.length
     if (numberOfFileNodes > 0) {
-      lastFilePath = fileNodes.children[numberOfFileNodes - 1].attributes.getNamedItem('path').value
+      var attrPath = fileNodes.children[numberOfFileNodes - 1].attributes.getNamedItem('path');
+      lastFilePath = attrPath ? attrPath.value : undefined;
       if (lastFilePath !== nextPath) {
         suites[browser.id].ele('file', {
           path: nextPath,
